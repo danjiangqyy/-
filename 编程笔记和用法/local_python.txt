@@ -1,0 +1,42 @@
+除此之外还要熟悉熟悉常用的模块，
+
+如re、os、sys、datetime、time、math等，lambda函数，装饰器，生成器，迭代器，
+魔法函数，计算机网络，协议：http协议、tcp协议、udp协议等基础知识
+
+
+
+io file os  sys
+
+
+3:异常 try except
+
+open() 函数；
+
+读文件的方法：read()、readline()、readlines()；
+
+
+文件的路径；
+
+写文件：覆盖、追加；
+
+异常处理(try..except..finally) ：FileNotFoundException...；
+
+with..open；
+
+
+存储&读取JSON格式数据：json.dump()和json.load()；
+
+数据持久化：操作csv、excel
+
+
+进程：multiprocessing模块、进程池、进程间的通信
+
+　　线程：thread模块、threading模块、Lock类、Condition类、Thread类、线程池
+
+　　线程和进程的关系以及区别
+
+　　并行和并发
+
+　　同步和异步
+
+　　创建多线程

@@ -1,0 +1,110 @@
+
+# coding=utf-8
+import pygame
+import random
+import sys
+
+
+
+HEIGHT ,WIDTH= 703,1254
+
+# 涓嶅叏灞�
+screen = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
+# 鍏ㄥ睆
+# screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN, 32)
+pygame.display.set_caption('这只是一个小游戏')
+
+
+# 娣诲姞鏂囨湰淇℃伅
+def title(text, screen, scale, color=(0, 0, 0)):
+    font = pygame.font.SysFont('SimHei', 27)
+    textRender = font.render(text, True, color)
+    # 鍒濆鍖栨枃鏈殑鍧愭爣
+    screen.blit(textRender, (WIDTH / scale[0], HEIGHT / scale[1]))
+
+
+# 鎸夐挳
+def button(text, x, y, w, h, color, screen):
+        pygame.draw.rect(screen, color, (x, y, w, h))
+        font = pygame.font.SysFont('SimHei', 20)
+        textRender = font.render(text, True, (255, 255, 255))
+        textRect = textRender.get_rect()
+        textRect.center = ((x+w/2), (y+h/2))
+        screen.blit(textRender, textRect)
+
+
+# 鐢熸垚闅忔満鐨勪綅缃潗鏍�
+def get_random_pos():
+        x, y = random.randint(10, 600), random.randint(20, 500)
+        return x, y
+
+
+# 鐐瑰嚮绛斿簲鎸夐挳鍚庢樉绀虹殑椤甸潰
+def show_like_interface(screen):
+    screen.fill((255, 255, 255))
+    # background1 = pygame.image.load(r'C:\Users\little\Desktop\hah\1.png').convert()
+    # screen.blit(background1, (0, 0))
+    background = pygame.image.load(r'C:\Users\little\Desktop\hah\321.png').convert()
+    screen.blit(background, (0, 0))
+
+    pygame.display.update()
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+
+
+def main():
+    pygame.init()
+    clock = pygame.time.Clock()
+
+    # 璁剧疆涓嶅悓鎰忔寜閽睘鎬�
+    unlike_pos_x = 130
+    unlike_pos_y = 375
+    unlike_pos_width = 400
+    unlike_pos_height = 85
+    unlike_color = (115, 76, 243)
+    # 璁剧疆鍚屾剰鎸夐挳灞炴��
+    like_pos_x = 130
+    like_pos_y = 280
+    like_pos_width = 350
+    like_pos_height = 85
+    like_color = (115, 76, 243)
+
+    running = True
+    while running:
+        # 濉厖绐楀彛
+        screen.fill((255, 255, 255))
+        # 娣诲姞鑳屾櫙鍥�
+        # background = pygame.image.load(r'C:\Users\little\Desktop\hah\321.png').convert()
+        # screen.blit(background, (0, 0))
+
+        # 鑾峰彇榧犳爣鍧愭爣
+        pos = pygame.mouse.get_pos()
+        # 判断鼠标位置,不同意时,按钮不断变化
+        if pos[0] < unlike_pos_x + unlike_pos_width + 5 and pos[0] > unlike_pos_x - 5 and pos[1] < unlike_pos_y + unlike_pos_height + 5 and pos[1] > unlike_pos_y - 5:
+            while True:
+                unlike_pos_x, unlike_pos_y = get_random_pos()
+                if pos[0] < unlike_pos_x + unlike_pos_width + 5 and pos[0] > unlike_pos_x - 5 and pos[1] < unlike_pos_y + unlike_pos_height + 5 and pos[1] > unlike_pos_y - 5:
+                    continue
+                break
+
+        # 璁剧疆鏍囬鍙婃寜閽枃鏈俊鎭�
+        title('1.你喜欢吃火锅嘛', screen, scale=[8, 3])
+        button('A.当然拉', like_pos_x, like_pos_y, like_pos_width, like_pos_height, like_color, screen)
+        button('B.不喜欢', unlike_pos_x, unlike_pos_y, unlike_pos_width, unlike_pos_height, unlike_color, screen)
+        # 璁剧疆鍏抽棴閫夐」灞炴��
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+        # 褰撻紶鏍囩偣鍑诲悓鎰忔寜閽悗,璺宠浆缁撴潫椤甸潰
+        if pos[0] < like_pos_x + like_pos_width + 5 and pos[0] > like_pos_x - 5 and pos[1] < like_pos_y + like_pos_height + 5 and pos[1] > like_pos_y - 5:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                show_like_interface(screen)
+
+        pygame.display.flip()
+        pygame.display.update()
+        clock.tick(60)
+
+if __name__ == '__main__':
+    main()

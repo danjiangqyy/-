@@ -1,0 +1,120 @@
+编程 是  思想 
+
+你想想 你自己 会怎么写 把思路 用法 都记在脑子里
+
+最好是把 标准库 标准包（文本，图像处理，数据处理，os，file，IO，） 都会 然后 自己可以 写 任意脚本 处理任意东西 技多不压身
+
+
+正则表达式 日志log  进程
+
+拷贝 压缩
+
+shutil 
+
+zipfile、
+
+file 
+
+io sys  os
+
+platform 计算机操作系统
+
+数据处理 pandas numpy 
+
+图像处理
+---------------------------------------------------
+Path  
+http://www.zzvips.com/article/94698.html
+
+path = r'D:\python\pycharm2020\program\pathlib模块的基本使用.py'
+p = Path(path)
+print(p.name)  # 获取文件名
+print(p.stem)  # 获取文件名除后缀的部分
+print(p.suffix)  # 获取文件后缀
+print(p.parent)  # 相当于dirname
+print(p.parent.parent.parent)
+print(p.parents) # 返回一个iterable 包含所有父目录
+
+文件操作
+https://blog.csdn.net/weixin_39241397/article/details/94485557
+
+
+File
+------------------------------------------------------------------------------------
+文本
+split 指定 分割 切片
+strip 删除 包含
+shutil.copy("oldfile","newfile") 
+
+
+------------------------------------------------------------------------
+os.pid  主进程 子进程
+os.getpid
+
+os.fork
+
+
+%s	通过str()字符串转换来格式化
+%d	有符号的十进制整数
+
+
+
+-------------------------------------------------------------------------
+读取相机
+
+capture = cv2.VideoCapture(0)
+
+退出
+capture.release()
+
+
+cv2.waitkey
+
+cv2.cvtcolor
+
+k = cv2.waitKey(0)
+if k == ord('s'): # wait for 's' key to save and exit
+    cv2.imwrite('1.png',img)
+    cv2.destroyAllWindows()
+else: 
+    cv2.destroyAllWindows()
+-------------------------------------------------------------------------
+python相关数据 和json 的转换
+
+json.dumps()
+json.loads()
+
+格式处理
+
+json.dump()
+json.load()
+-------------------------------------------------------------------------
+文件读取
+
+xml文件处理方法
+try:
+    import xml.etree.cElementTree as ET
+except ImportError:
+    import xml.etree.ElementTree as ET
+
+tree = ET.parse(f)  # 打开xml文档
+        root = tree.getroot()  # 获得root节点
+        annotation = root
+
+-------------------------------------------------------------------------
+正则表达式
+
+re.search(pattern,string ,flags=0)
+re.match(pattern,string ,flags=0)
+re.splite(pattern,string ,maxsplit,flags=0)
+re.findall
+re.compile
+
+-------------------------------------------------------------------------
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
+-------------------------------------------------------------------------
+打包的用法
+   nuitka -mingw64
+-------------------------------------------------------------------------
+pyzbar 用来读取二维码

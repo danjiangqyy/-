@@ -1,0 +1,19 @@
+cv2.pyrDown() 和 cv2.pyrUp() 构建图像金字塔。 
+cv2.pyrDown() 从一个高分辨率大尺寸的图像向上构建一个金字塔（尺寸变小，分辨率降低）
+
+cv2.minMaxLoc() 矩阵的最小值，最大值，并得到最大值，最小值的索引
+min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(ret)
+
+cv2.matchTemplate(src, template, method)
+作用：用于生成图像的频数直方图 
+
+cv2.rectangle(img, (x, y), (x+w. y+h), (0, 0, 255), 2)
+作用：用于在图像上画出矩阵
+
+
+from PIL import ImageChops
+ImageChops.difference(image1, image2)
+
+
+jpg属于有损压缩，是以图片的清晰度为代价的，数字越小，压缩比越高，图片质量损失越严重
+png属于无损压缩，数字0-9，数字越低，压缩比越低

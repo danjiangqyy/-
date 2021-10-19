@@ -1,0 +1,57 @@
+import os
+os.system("notepad.exe")
+os.system("ping www.baidu.com")
+
+类似于cmd 直接执行
+
+
+
+os.execl()
+os.execv()
+
+----------------------------------------------------------------
+os.startfile(r"C:\Program Files (x86)\Tencent\WeChat\WeChat.exe")
+
+打开文件
+----------------------------------------------------------------
+path=r'.........................'
+
+os.remove() 删除指定文件
+os.rename() 重命名
+
+os.stat() 返回属性
+os.listdir()     返回当前 文件夹 所有 文件
+
+os.mkdir()  创建 文件夹
+os.getcwd() 返回当前目录
+os.walk()    遍历
+
+
+----------------------------------------------------------------
+
+os.path
+
+
+isabs() 是否绝对路径
+
+isdir() 是否 是文件夹
+
+isfile()是否是 文件
+
+exists() 是否存在
+
+getsize() 多大
+
+abspath() 返回绝对路径
+
+dirname() 返回文件夹 名字
+
+getatime()最后访问时间
+
+getctime()返回最后修改时间
+----------------------------------------------------------------
+join() 连接
+
+split()  路径 分割
+
+splitext()
